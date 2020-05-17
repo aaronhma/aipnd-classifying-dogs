@@ -1,10 +1,27 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# get_pet_labels.py
-#                                                                             
-# PROGRAMMER: Aaron Ma
-# DATE CREATED:                                  
-# REVISED DATE: 
+#
+# MIT License
+#
+# Copyright (c) 2020 - Present Aaron Ma,
+# Copyright (c) 2018 - 2020 Udacity, Inc.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from 
 #          the image's filename. This function inputs: 
 #           - The Image Folder as image_dir within get_pet_labels function and 
@@ -20,7 +37,6 @@
 from os import listdir
 
 # Returns the results_dic dictionary
-# 
 def get_pet_labels(image_dir):
     """
     Creates a dictionary of pet labels (results_dic) based upon the filenames 
@@ -38,10 +54,9 @@ def get_pet_labels(image_dir):
       List. The list contains for following item:
          index 0 = pet image label (string)
     """
-    # Replace None with the results_dic dictionary that you created with this
-    # function
     results_dic = dict()
-    labels = dict()
+    flabels = dict()
+    rlabels = dict()
     
     files = listdir(image_dir)
     
@@ -54,12 +69,18 @@ def get_pet_labels(image_dir):
     with open("dognames.txt") as file:
       for i in file:
         i = str(i)
-        labels[t] = i
+        flabels[t] = i
         t += 1
+    keys = sorted(flabels.keys())
+    values = sorted(flabels.values())
+    
+    for i in keys:
+      for z in values:
+        rlabels[i] = z
     
     for i in range(0, len(files), 1):
       if files[i] not in results_dic:
-        results_dic[files[i]] = [labels[i]]
+        results_dic[files[i]] = [rlabels[i]]
       else:
         print(f"[WARN] {files[i]} already in the dictionary!")
         print("This may cause errors at runtime.")

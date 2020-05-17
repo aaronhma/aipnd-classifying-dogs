@@ -1,10 +1,27 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# check_images.py file
-#                                                                       
-# PROGRAMMER: Aaron Ma
-# DATE CREATED: 5/16/2020        
-# REVISED DATE: 5/16/2020
+#
+# MIT License
+#
+# Copyright (c) 2020 - Present Aaron Ma,
+# Copyright (c) 2018 - 2020 Udacity, Inc.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
 # PURPOSE: Classifies pet images using a pretrained CNN model, compares these
 #          classifications to the true identity of the pets in the images, and
 #          summarizes how well the CNN performed on the image classification task. 
@@ -92,9 +109,9 @@ def main():
     # Computes overall runtime in seconds & prints it in hh:mm:ss format
     tot_time = end_time - start_time
     print("\n**Total Completion Time: {}:{}:{}**".format(
-          str(int((tot_time / 3600)))
-          + str(int((tot_time % 3600) / 60))
-          + str(int((tot_time % 3600) % 60))))
+          str(int((tot_time / 3600))),
+          str(int((tot_time % 3600) / 60)),
+          str(int((tot_time % 3600) % 60))))
 
 # Call to main function to run the program
 if __name__ == "__main__":
