@@ -19,9 +19,7 @@
 # Imports python modules
 from os import listdir
 
-# TODO 2: Define get_pet_labels function below please be certain to replace None
-#       in the return statement with results_dic dictionary that you create 
-#       with this function
+# Returns the results_dic dictionary
 # 
 def get_pet_labels(image_dir):
     """
@@ -42,4 +40,30 @@ def get_pet_labels(image_dir):
     """
     # Replace None with the results_dic dictionary that you created with this
     # function
-    return None
+    results_dic = dict()
+    labels = dict()
+    
+    files = listdir(image_dir)
+    
+    # for i in range(0, len(files) - 1):
+    #   files[i] = files[i].lower()
+    #   files[i] = files[i].split("_")
+    
+    t = 0
+    
+    with open("dognames.txt") as file:
+      for i in file:
+        i = str(i)
+        labels[t] = i
+        t += 1
+    
+    for i in range(0, len(files), 1):
+      if files[i] not in results_dic:
+        results_dic[files[i]] = [labels[i]]
+      else:
+        print(f"[WARN] {files[i]} already in the dictionary!")
+        print("This may cause errors at runtime.")
+      
+    # TODO: ask if user wants to see output
+    
+    return results_dic
