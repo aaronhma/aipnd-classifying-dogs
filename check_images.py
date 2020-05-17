@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# check_images.py
+# check_images.py file
 #                                                                       
 # PROGRAMMER: Aaron Ma
 # DATE CREATED: 5/16/2020        
