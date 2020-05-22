@@ -48,7 +48,7 @@
 #           label isn't a dog.
 #
 ##
-# TODO 4: Define adjust_results4_isadog function below, specifically replace the None
+# Define adjust_results4_isadog function below, specifically replace the None
 #       below by the function definition of the adjust_results4_isadog function. 
 #       Notice that this function doesn't return anything because the 
 #       results_dic dictionary that is passed into the function is a mutable 
@@ -83,5 +83,15 @@ def adjust_results4_isadog(results_dic, dogfile):
                maltese) (string - indicates text file's filename)
     Returns:
            None - results_dic is mutable data type so no return needed.
-    """           
-    None
+    """      
+    with open(dogfile) as file:
+      dogs = list(file.read())
+      
+    for i in list(results_dic.values()):
+      print("hello from isdog: ", i)
+      if i[1] in dogs:
+        i.append(1)
+        i.append(1)
+      else:
+        i.append(0)
+        i.append(0)
